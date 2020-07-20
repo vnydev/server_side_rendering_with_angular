@@ -25,9 +25,7 @@
               <!-- <span class="icon_size"><i class="material-icons ">arrow_drop_up</i></span> -->
               <button mat-icon-button color="primary" aria-label="Example icon button with a arrow_drop_up icon"
                 (click)="upVote(element)">
-                <a href={{element?.url}} target="__blank">
                   <mat-icon>arrow_drop_up</mat-icon>
-                </a>
               </button>
             </td>
           </ng-container>
@@ -55,7 +53,7 @@
           <button mat-button (click)="nextPage()">Next</button>
         </div>
 
-        <div class="chart" *ngIf="dataSource.length > 0 && y_chartData.length > 0 && x_chartData.length > 0">
+        <div class="chart" *ngIf="!isLoading && y_chartData.length > 0 && x_chartData.length > 0">
           <app-news-line-chart [x_chartData]="x_chartData" [y_chartData]="y_chartData"></app-news-line-chart>
         </div>
       </div>
