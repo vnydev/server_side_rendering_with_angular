@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="container-fluid main">
+      <div class="spiner" *ngIf="isLoading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div class="n_list" *ngIf="dataSource && dataSource.length > 0">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Comments Column -->
+          <ng-container matColumnDef="Comments">
+            <th mat-header-cell *matHeaderCellDef>Comments</th>
+            <td mat-cell *matCellDef="let element">{{ element.num_comments }}</td>
+          </ng-container>
+
+          <!-- Vote Count Column -->
+          <ng-container matColumnDef="Vote Count">
+            <th mat-header-cell *matHeaderCellDef>Vote Count</th>
+            <td mat-cell *matCellDef="let element">{{ element.points }}</td>
+          </ng-container>
+
+          <!-- UpVote Column -->
+          <ng-container matColumnDef="UpVote">
+            <th mat-header-cell *matHeaderCellDef>UpVote</th>
+            <td mat-cell *matCellDef="let element">
+              <!-- <span class="icon_size"><i class="material-icons ">arrow_drop_up</i></span> -->
+              <button mat-icon-button color="primary" aria-label="Example icon button with a arrow_drop_up icon"
+                (click)="upVote(element)">
+                <a href={{element?.url}} target="__blank">
+                  <mat-icon>arrow_drop_up</mat-icon>
+                </a>
+              </button>
+            </td>
+          </ng-container>
+
+          <!-- News Details Column -->
+          <ng-container matColumnDef="News Details">
+            <th mat-header-cell *matHeaderCellDef>News Details</th>
+            <td mat-cell *matCellDef="let element; let i=index;">
+              {{ element.title }} <span class="light_detail" *ngIf="printHost(element.url)">
+                ({{printHost(element.url)}}) by</span> {{element.author}} <span class="light_detail"
+                *ngIf="getHours(element.created_at)">{{getHours(element.created_at)}}</span>
+
+                <button class="close_btn" mat-icon-button color="primary" aria-label="Example icon button with a close icon"
+                (click)="removeStory(element, i)">         
+                  <mat-icon>close</mat-icon>
+                </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+        <div class="pagination_action" *ngIf="dataSource && dataSource.length > 0">
+          <button mat-button class="pre" [disabled]="page <= 1" (click)="previousPage()">Previous</button>
+          <button mat-button (click)="nextPage()">Next</button>
+        </div>
+
+        <div class="chart" *ngIf="dataSource.length > 0 && y_chartData.length > 0 && x_chartData.length > 0">
+          <app-news-line-chart [x_chartData]="x_chartData" [y_chartData]="y_chartData"></app-news-line-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

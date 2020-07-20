@@ -1,0 +1,108 @@
+.main{
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: auto;
+
+    .spiner{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 1000;
+        text-align: center;
+        display: inline-flex;
+        justify-content: center;
+        background-color: grey;
+        opacity: 0.5;
+        padding-top: 25%;
+    }
+
+    .n_list {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+
+    table {
+        width: 100%;
+        padding: 2%;
+
+        .mat-header-cell {
+        font-size: 16px;
+        background-color: orange;
+        }
+
+        .material-icons {
+        font-size: 45px;
+        cursor: pointer;
+        color: #524949c8;
+        padding-right: 25px;
+        padding-left: 0px;
+        }
+
+        .light_detail{
+            color: #a5a3a3;
+        }
+
+        .close_btn{
+            float: right;
+
+            .material-icons {
+                font-size: 25px;
+            }
+        }
+    }
+    .pagination_action {
+        text-align: right;
+        margin-bottom: 2%;
+        margin-right: 1%;
+        margin-top: 1%;
+
+        button {
+        background: #fff !important;
+        margin-right: 5px;
+        color: orange;
+        margin-right: 5px;
+        }
+
+        .pre {
+        border-right: 2px solid orange;
+        }
+    }
+
+    .chart {
+        border-top: 2px solid orange;
+        border-bottom: 2px solid orange;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    }
+
+    .mat-column-select {
+    overflow: initial !important;
+    }
+}
+
+th.mat-header-cell.cdk-header-cell{
+    width:auto;
+    text-align: left;
+    padding: 1%;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 300px) and ( max-width: 992px) {
+    th.mat-header-cell.cdk-header-cell{
+        width: 15%;
+        text-align: left;
+        padding: 1%;
+    }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+   
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px ) { 
+    
+ }
