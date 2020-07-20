@@ -50,7 +50,8 @@
         </table>
         <div class="pagination_action" *ngIf="!isLoading && dataSource && dataSource.length > 0">
           <button mat-button class="pre" [disabled]="page <= 1" (click)="previousPage()">Previous</button>
-          <button mat-button (click)="nextPage()">Next</button>
+          <button mat-icon-button color="primary" >{{page}}</button>
+          <button mat-button class="nxt" (click)="nextPage()">Next</button>
         </div>
 
         <div class="chart" *ngIf="!isLoading && y_chartData.length > 0 && x_chartData.length > 0">

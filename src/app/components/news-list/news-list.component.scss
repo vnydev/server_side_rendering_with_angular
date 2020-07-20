@@ -12,8 +12,8 @@
         text-align: center;
         display: inline-flex;
         justify-content: center;
-        background-color: grey;
-        opacity: 0.5;
+        background-color:#c8c8c8;
+        opacity: 0.2;
         padding-top: 25%;
     }
 
@@ -64,8 +64,15 @@
         margin-right: 5px;
         }
 
+        button:focus{
+            outline: none !important;
+        }
+
         .pre {
         border-right: 2px solid orange;
+        }
+        .nxt {
+        border-left: 2px solid orange;
         }
     }
 

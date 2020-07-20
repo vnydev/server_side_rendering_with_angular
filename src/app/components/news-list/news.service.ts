@@ -9,6 +9,7 @@ import { NewsModel } from './news.model';
 @Injectable()
 export class NewsService {
 
+    urlNewsList = API_URL + `/search`;
     constructor(private _http: HttpClient){}
 
     getNewsList(page: number, tags:string): Observable<NewsModel>{
@@ -16,8 +17,7 @@ export class NewsService {
         params = params.append('page', page.toString());
         params = params.append('tags', tags);
 
-        let url = API_URL + `/search`;
-        return this._http.get<NewsModel>(url, {params}).pipe(catchError(this.handleError))
+        return this._http.get<NewsModel>(this.urlNewsList, {params}).pipe(catchError(this.handleError))
     }
 
 

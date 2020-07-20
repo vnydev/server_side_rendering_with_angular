@@ -88,7 +88,7 @@ export class NewsLineChartComponent implements OnInit, OnChanges, AfterViewInit 
                   fontWeight: 'bold',
                 },
                 ticks: {
-                  //   max: 10000,
+                  // max: 10000,
                   min: 0,
                   beginAtZero: true,
                   //   stepSize: 1000
