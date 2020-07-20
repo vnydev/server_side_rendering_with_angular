@@ -48,7 +48,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-        <div class="pagination_action" *ngIf="dataSource && dataSource.length > 0">
+        <div class="pagination_action" *ngIf="!isLoading && dataSource && dataSource.length > 0">
           <button mat-button class="pre" [disabled]="page <= 1" (click)="previousPage()">Previous</button>
           <button mat-button (click)="nextPage()">Next</button>
         </div>
